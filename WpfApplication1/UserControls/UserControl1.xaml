@@ -1,0 +1,114 @@
+﻿<UserControl xmlns:MyUserControls="clr-namespace:WpfApplication1.UserControls"
+             x:Class="WpfApplication1.UserControls.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <UserControl.Resources>
+        <PathGeometry x:Name="busRoutePath" x:Key="MyGeometry" 
+                        Figures="M 533,228 L 530,229 528,231 526,232 525,235 524,240 522,243 519,247 516,250 514,250 507,251 500,252 493,252 487,253 482,253 476,253 472,254 468,254 467,257 467,259 468,263 468,267 469,270 471,274 469,279 466,285 463,291 463,295 462,302 464,308 467,313 469,319 471,323 472,328 474,331 474,335 473,338 473,342 473,345 473,343 470,342 467,344 463,344 455,344 449,344 442,343 435,344 429,345 425,348 421,348 416,349 411,348 406,347 400,343 395,342 392,338 386,336 382,332 378,329 372,327 370,322 363,315 360,314 355,310 353,306 345,306 342,307 338,310 334,314 329,316 324,318 321,320 319,325 316,328 312,329 308,332 305,334 301,335 299,335 293,334 290,332 285,330 281,328 279,327 276,325 271,323 267,321 265,324 265,327 264,329 264,333 264,336 263,338 260,338 256,336 253,338 252,332"/>
+        <Storyboard x:Key="busRouteSBKey"  RepeatBehavior="Forever">
+            <DoubleAnimationUsingPath Source="X"  Duration="0:0:6"
+        		Storyboard.TargetProperty="(Canvas.Left)"
+        		PathGeometry="{StaticResource MyGeometry}"/>
+            <DoubleAnimationUsingPath Source="Y" Duration="0:0:6"
+        		Storyboard.TargetProperty="(Canvas.Top)"
+        		PathGeometry="{StaticResource MyGeometry}"/>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Viewbox >
+        <Grid Width="1280" Height="700">
+
+            <Grid x:Name="mapGrid"  Margin="50,50,0,0" Height="600" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/WpfApplication1;component/Images/TrafficRoute_full.png" Stretch="Uniform"/>
+                </Grid.Background>
+                <Canvas x:Name="ucCanvas">
+                    <Grid x:Name="meme4" HorizontalAlignment="Left" Height="16" Margin="-8,-5,0,0" VerticalAlignment="Top" Width="17">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/WpfApplication1;component/Images/bus_24x24.png" Stretch="Uniform"/>
+                        </Grid.Background>
+                    </Grid>
+                </Canvas>
+            </Grid>
+
+            <ComboBox x:Name="planCB" Margin="67,31,0,0" VerticalAlignment="Top" SelectedIndex="2" SelectionChanged="planCB_SelectionChanged" HorizontalAlignment="Left" Width="176">
+                <ComboBoxItem Content="Suggested (new) Bus Route"/>
+                <ComboBoxItem Content="Existing Route"/>
+                <ComboBoxItem Content="Both Routes"/>
+            </ComboBox>
+            <TextBlock x:Name="detailsModeTB" HorizontalAlignment="Left" Margin="16,34,0,0" TextWrapping="Wrap" Text="Viewing:" VerticalAlignment="Top" Foreground="White" Width="46" FontSize="12"/>
+
+
+            <Grid x:Name="sideDetailsGrid" HorizontalAlignment="Right" Height="600" Margin="0,50,50,0" VerticalAlignment="Top" Width="352">
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" Foreground="White" Width="89" FontSize="15"/>
+                <Separator Height="8" Margin="0,24,0,0" VerticalAlignment="Top"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="Goal:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,61,0,0" TextWrapping="Wrap" Text="Reduce station(s) congestion" VerticalAlignment="Top" Foreground="White" Width="180" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Period:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,85,0,0" TextWrapping="Wrap" Text="Weekdays" VerticalAlignment="Top" Foreground="White" Width="70" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Time Range:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,108,0,0" TextWrapping="Wrap" Text="7am - 9am" VerticalAlignment="Top" Foreground="White" Width="70" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="Affected Commuters:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,131,0,0" TextWrapping="Wrap" Text="3451" VerticalAlignment="Top" Foreground="White" Width="44" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,189,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="10,210,0,0" TextWrapping="Wrap" Text="Detected significant numbers of commuters, living around the vicinity of Sengkang New Town, requiring to (at least partially) travel from Sengkang MRT station to Jurong East MRT station." VerticalAlignment="Top" Foreground="White" Width="325" FontSize="12" Height="86"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,306,0,0" TextWrapping="Wrap" Text="Existing Route:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,304,0,0" TextWrapping="Wrap" Text="63 mins" VerticalAlignment="Top" Foreground="White" Width="70" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,327,0,0" TextWrapping="Wrap" Text="Suggested Bus Route:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,325,0,0" TextWrapping="Wrap" Text="34 mins" VerticalAlignment="Top" Foreground="White" Width="65" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="232,327,0,0" TextWrapping="Wrap" Text="(-29 mins)" VerticalAlignment="Top" Foreground="#3D9400" Width="70" />
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,387,0,0" TextWrapping="Wrap" Text="Estimated Train Occupancy" VerticalAlignment="Top" Foreground="White" Width="292" FontSize="15"/>
+                <Separator Height="8" Margin="0,411,0,0" VerticalAlignment="Top"/>
+
+                <Grid x:Name="meme3" HorizontalAlignment="Left" Height="16" Margin="22,424,0,0" VerticalAlignment="Top" Width="17">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/WpfApplication1;component/Images/Schematic/GreenNode.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="52,424,0,0" TextWrapping="Wrap" Text="Outram Park MRT" VerticalAlignment="Top" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="162,422,0,0" TextWrapping="Wrap" Text="85.13%" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="232,424,0,0" TextWrapping="Wrap" Text="(-5.15%)" VerticalAlignment="Top" Foreground="#3D9400"/>
+                <Grid HorizontalAlignment="Left" Height="16" Margin="22,445,0,0" VerticalAlignment="Top" Width="17">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/WpfApplication1;component/Images/Schematic/PurpleNode.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="52,445,0,0" TextWrapping="Wrap" Text="Hougang MRT" VerticalAlignment="Top" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="162,443,0,0" TextWrapping="Wrap" Text="76.81%" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="232,445,0,0" TextWrapping="Wrap" Text="(- 9.27%)" VerticalAlignment="Top" Foreground="#3D9400"/>
+                <Grid HorizontalAlignment="Left" Height="16" Margin="22,466,0,0" VerticalAlignment="Top" Width="17">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/WpfApplication1;component/Images/Schematic/PurpleNode.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="52,466,0,0" TextWrapping="Wrap" Text="Sengkang MRT" VerticalAlignment="Top" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="162,464,0,0" TextWrapping="Wrap" Text="72.34%" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="232,466,0,0" TextWrapping="Wrap" Text="(- 7.82%)" VerticalAlignment="Top" Foreground="#3D9400"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,156,0,0" TextWrapping="Wrap" Text="Buses Required:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,154,0,0" TextWrapping="Wrap" Text="46" VerticalAlignment="Top" Foreground="White" Width="44" FontSize="14"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,39,0,0" TextWrapping="Wrap" Text="Scenario ID:" VerticalAlignment="Top" Foreground="Gray" Width="132" />
+                <TextBlock HorizontalAlignment="Left" Margin="162,37,0,0" TextWrapping="Wrap" Text="NE/W/00023" VerticalAlignment="Top" Foreground="White" Width="180" FontSize="14"/>
+                <Grid HorizontalAlignment="Left" Height="16" Margin="22,487,0,0" VerticalAlignment="Top" Width="17">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/WpfApplication1;component/Images/Schematic/PurpleNode.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="52,487,0,0" TextWrapping="Wrap" Text="Punggol MRT" VerticalAlignment="Top" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="162,485,0,0" TextWrapping="Wrap" Text="71.18%" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="232,487,0,0" TextWrapping="Wrap" Text="(- 6.79%)" VerticalAlignment="Top" Foreground="#3D9400"/>
+            </Grid>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

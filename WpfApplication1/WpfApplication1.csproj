@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +72,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,6 +103,52 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_black1.jpg" />
+    <Resource Include="Images\bus_24x24.png" />
+    <Resource Include="Images\chart_legend_OffPeak.png" />
+    <Resource Include="Images\chart_legend_Peak.png" />
+    <Resource Include="Images\Clementi-Schematic-LowRes.jpg" />
+    <Resource Include="Images\Clementi-Schematic-Overlay.png" />
+    <Resource Include="Images\clementi_MRT.png" />
+    <Resource Include="Images\clementi_surroundings.png" />
+    <Resource Include="Images\Clementi_VisualSummaryUpdate.png" />
+    <Resource Include="Images\GreenLineSample.png" />
+    <Resource Include="Images\limeBus_48x48.png" />
+    <Resource Include="Images\locationCloseUp.png" />
+    <Resource Include="Images\purpleBus_48x48.png" />
+    <Resource Include="Images\Schematic\Bus-Interchange.png" />
+    <Resource Include="Images\Schematic\BusStop.png" />
+    <Resource Include="Images\Schematic\DlbGreenIndicator-Bus.png" />
+    <Resource Include="Images\Schematic\DlbOrangeIndicator-Bus.png" />
+    <Resource Include="Images\Schematic\DlbRedIndicator-Bus.png" />
+    <Resource Include="Images\Schematic\DlbYellowIndicator-Bus.png" />
+    <Resource Include="Images\Schematic\GreenIndicator-InterChange.png" />
+    <Resource Include="Images\Schematic\GreenNode.png" />
+    <Resource Include="Images\Schematic\OrangeIndicator-InterChange.png" />
+    <Resource Include="Images\Schematic\OrangeNode.png" />
+    <Resource Include="Images\Schematic\PurpleNode.png" />
+    <Resource Include="Images\Schematic\RedIndicator-InterChange.png" />
+    <Resource Include="Images\Schematic\RedNode.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line3.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line3_Clean.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line3_Clean_v2.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line3_Clean_v2_PlanA.png" />
+    <Resource Include="Images\Schematic\Schematic_Node_Line3_Clean_v2_PlanB.png" />
+    <Resource Include="Images\Schematic\Schematic_NoNode_Line.png" />
+    <Resource Include="Images\Schematic\Schematic_NoNode_WLine.png" />
+    <Resource Include="Images\Schematic\WhiteNode.png" />
+    <Resource Include="Images\Schematic\YellowIndicator-InterChange.png" />
+    <Resource Include="Images\Schematic\YellowNode.png" />
+    <Resource Include="Images\TrafficRoute_bus.png" />
+    <Resource Include="Images\TrafficRoute_full.png" />
+    <Resource Include="Images\TrafficRoute_MRT.png" />
+    <Resource Include="Images\transit_overlay_%28bus%29_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\DemoImages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
